@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    restart: unless-stopped
+    network_mode: host # use host network to access the host machine
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
